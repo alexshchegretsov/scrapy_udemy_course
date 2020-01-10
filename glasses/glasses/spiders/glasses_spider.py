@@ -10,16 +10,12 @@ class GlassesSpiderSpider(scrapy.Spider):
     def parse(self, response):
         divs = response.css("div.prlist.row div.col-sm-6.col-md-4.m-p-product")
         for div in divs:
-            product_link = div.css("div.pimg.default-image-front>a::attr(href)").get()
-            product_image_link = div.css("div.pimg.default-image-front>a>img::attr(src)").get()
-            product_name = div.css("div.row>p>a::text").get()
-            product_price = div.css("span.pull-right::text").get()
 
             yield {
-                "product_link": product_link,
-                "product_image_link": product_image_link,
-                "product_name": product_name,
-                "product_price": product_price
+                "product_link": div.css("div.pimg.default-image-front>a::attr(href)").get(),
+                "product_image_link": div.css("div.pimg.default-image-front>a>img::attr(src)").get(),
+                "product_name": div.css("div.row>p>a::text").get(),
+                "product_price": div.css("span.pull-right::text").get()
             }
 
         hrefs = response.css("ul.pagination li>a")
