@@ -9,6 +9,8 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+FEED_EXPORT_ENCODING = "utf-8"
+
 BOT_NAME = 'books'
 
 SPIDER_MODULES = ['books.spiders']

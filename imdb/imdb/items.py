@@ -9,7 +9,7 @@ import scrapy
 import unicodedata
 
 
-# like FEED_EXPOR_ENCODING = "utf-8"
+# like FEED_EXPORT_ENCODING = "utf-8" in settings.py
 def serializer_title(data: str):
     new_str = unicodedata.normalize("NFKD", data)
     return new_str.rstrip()
