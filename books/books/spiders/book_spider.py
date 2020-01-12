@@ -48,5 +48,5 @@ class BookSpiderSpider(CrawlSpider):
             "title": response.css("div.col-sm-6.product_main>h1::text").get(),
             "price": response.css("p.price_color::text").get(),
             "star": star_mapper[star_txt],
-            "user_agent": response.request.headers["User-Agent"]
+            # "user_agent": response.request.headers["User-Agent"]
         }
